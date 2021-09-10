@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	background:#eee;
+	display:flex;
+	min-height:100vh;
+	}
+.contenedor{
+	margin:auto;
+	/*esta es la camara de vision*/
+	perspective:700px;
+	/*cambiamos la vision*/
+	perspective-origin:top;
+	}
+.caja{
+	width:200px;
+	height:200px;
+	background:crimson;
+	transition:all 5s;
+	/*este es el giro*/
+	transform: rotateX(50deg);
+	/* transform:rotateY(50deg)*/
+	/* transform:rotateY(100deg)*/
+	/* transform:rotateY(90deg)*/
+	/* transform:rotateZ(50deg)*/
+	/* transform:rotate3d(1,0,0,50deg)(100deg,50deg,50deg) en x 50 grados, en y no y en z no
+	transform:translateZ(200px)
+	transform:scaleZ(4) rotateX(50deg)*/
+	transform-style:preserve-3d;
+	}
+.cara{
+	width:200px;
+	height:200px;
+	background:gold;
+	margin:auto;
+	transform:rotateY(90deg);
+	}
+.caja:hover{
+	transform:rotateY(960deg);
+	
+	}
+
+
