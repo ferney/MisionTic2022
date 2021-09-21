@@ -1,1 +1,87 @@
 
+body {
+  background: #f1f1f1;
+  font-family: Sans-Serif;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.contenedor {
+  width: 1024px;
+  margin: 0 auto;
+  display: block;
+}
+
+.menu {
+  /* Menu centrado */
+  float: left;
+  left: 50%;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+.menu li {
+  /* Estilo item */
+  margin: 0.5em 1em 0.5em 1em;
+  overflow: hidden;
+
+  /* Menu centrado */
+  float: left;
+  position: relative;
+  right: 50%;
+}
+
+/* Items del menu */
+.menu li a {
+  /* Estilo item */
+  height: 2em;
+  line-height: 2em;
+  padding: 0.5em 2em 0.5em 2em;
+  background: white;
+}
+
+.menu li:hover a {
+  /* Estilo item */
+  background: chartreuse;
+  color: white;
+}
+
+
+---------------------------------------------------------------------
+<form class="contenedor">
+  <ul class="menu">
+    <li><a href="#">Inicio</a></li>
+    <li>
+      <a href="#">Paquetes Turisticos</a>
+      <ul>
+        <li><a href="#">Paquete 1</a></li>
+        <li><a href="#">Paquete 2</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="">Sitios</a>
+      <ul>
+        <li><a href="">Playa</a></li>
+        <li><a href="">Rios</a></li>
+        <li><a href="">Montaña</a></li>
+        <li><a href="">Cascadas</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="">Hoteles</a>
+      <ul>
+        <li><a href="">Glamping</a></li>
+        <li><a href="">Aire libre</a></li>
+        <li><a href="">Clasico</a></li>
+        <li><a href="">Otros</a></li>
+      </ul>
+    </li>
+    <li><a href="">Contactos</a></li>
+  </ul>
+</form>
