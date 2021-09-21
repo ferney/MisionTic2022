@@ -52,6 +52,39 @@ a {
   color: white;
 }
 
+.menu li:hover a ul li {
+  /* Estilo item */
+  background: brown;
+  color: white;
+  padding-left: 1em;
+}
+/*items menu*/
+.menu li ul li {
+  /* Estilo item */
+  line-height: 1.5em;
+  height: 0;
+
+  padding: 0;
+
+  margin: 4px 8px 4px 8px;
+  overflow: hidden;
+
+  /*centrar el menu*/
+  float: none;
+  position: relative;
+  right: 0;
+
+  /*animacion*/
+  transition: 0.5s;
+}
+.menu li ul li:hover {
+  border-left: 5px solid chocolate;
+}
+.menu li:hover ul li {
+  min-height: 2em;
+  display: block;
+  float: none;
+}
 
 ---------------------------------------------------------------------
 <form class="contenedor">
