@@ -1,0 +1,167 @@
+/*function empleado(){
+  this.nombre="";
+  this.apellido="lopera";
+}
+
+function director(){
+  this.reporte=[];
+}
+
+director.prototype=new empleado();
+
+function adjunto(){
+  this.proyectos=[];
+}
+
+adjunto.prototype=new empleado();
+
+
+var c1={
+  nombre:'claudia',
+  llamar:function(){
+    console.log('usted es '+this.nombre);
+  }
+};
+c1.llamar();
+
+var miFuncion=function(parametro1,parametro2){
+  this.parametro1=parametro1;
+  this.miMetodo1=function(){
+    return this.parametro1;
+  }
+  
+}
+var miObjeto=new miFuncion('valor1','valor2');
+
+console.log(miObjeto.parametro1);
+console.log(miObjeto.miMetodo1());
+
+var persona=function(nombre,edad,altura,peso){
+  this.nombre=nombre;
+  this.edad=edad;
+  this.altura=altura;
+  this.peso=peso;
+  
+  this.mDatos=function(){
+    console.log('nombre:'+this.nombre+', edad:'+this.edad+
+               ', altura:'+this.altura+', peso:'+this.peso);
+  }
+  this.mayor=function(){
+    if(this.edad>=18){
+      console.log(this.nombre+' es mayor de edad');
+    }else{
+      console.log(this.nombre+' es menor de edad');
+    }
+  }
+}
+
+var carlos=new persona("carlos",27,1.80,80);
+carlos.mDatos();
+carlos.mayor();
+var jhon=new persona("jhon",17,1.80,80);
+jhon.mDatos();
+jhon.mayor();
+
+var encomienda=function(alto,ancho,largo,contenido){
+  this.alto=alto;
+  this.ancho=ancho;
+  this.largo=largo;
+  this.contenido=contenido || '';
+  this.insertar=function(objeto){
+    if(objeto.alto<=this.alto && objeto.ancho<=this.ancho && objeto.largo<=this.largo && this.contenido==='')
+    {
+      this.contenido=objeto;
+    }
+    else{
+      console.log('la caja no es suficientemente grande');
+    }
+  }
+  this.ver=function(){
+    if(this.contenido===''){
+      console.log('la caja esta vacia');
+    }
+    else{
+      console.log('la caja contiene un '+this.contenido.nombre);
+    }
+  }
+  
+  this.vacia=function(){
+    this.contenido='';
+  }
+  
+}
+
+var objeto=function(alto,ancho,largo,nombre){
+  this.alto=alto;
+  this.ancho=ancho;
+  this.largo=largo;
+  this.nombre=nombre;
+}
+
+
+var caja=new encomienda(100,100,100);
+
+var caja2=new objeto(0.5,40,10,'libro');
+
+var caja3=new objeto(40,15,50,'laptop');
+
+//caja.insertar(caja2);
+caja.insertar(caja3);
+caja.insertar(caja2);
+caja.ver();
+caja.vacia();
+
+class Empleado{
+  
+constructor(Nombre, edad) {
+  this. Nombre =Nombre;
+  this.edad=edad;
+  }
+  
+ presentarse(){
+   return 'hola, me llamo '+ 
+               this.Nombre+ ' tengo '+this.edad;
+ }
+  
+}
+
+class programador extends Empleado{
+  constructor(Nombre, edad, cargo) {
+  super(Nombre,edad);
+  this.cargo=cargo;
+  }
+  
+  presentarse(){
+    console.log(super.presentarse()+
+                ' y soy desarollador '+ this.cargo);
+  }
+}
+
+var carlos=new programador('carlos',35,'back-end');
+carlos.presentarse();*/
+
+class Empleado{
+    
+constructor(Nombre, edad) {
+  this. Nombre =Nombre;
+  this.edad=edad;
+  }
+
+  get xyz(){
+    return this.Nombre;
+  }
+  set Nuevo(nuevo){
+    this.Nombre=nuevo;
+  }
+  get xyzz(){
+    return this.edad;
+  }
+  set Nuevos(nuevos){
+    this.edad=nuevos;
+  }
+}
+
+var carlos= new Empleado('carlos',27);
+carlos.xyz;
+carlos.xyzz;
+//carlos.xyz();
