@@ -1,17 +1,17 @@
+//Primero requerimos los módulos 'http', url, fs, mysql y querystring
 const http=require('http');
 const url=require('url');
 const fs=require('fs');
 const querystring = require('querystring');
-
 const mysql=require('mysql');
-
+//Mediante la constante mysql llamamos a la función createConnection y le pasamos un objeto literal inicializando las propiedades 'host','user','password' y 'database'.
 const conexion=mysql.createConnection({
   host:'localhost',
   user:'root',
   password:'1234',
   database:'base1'
 });
-
+//procedemos a llamar a connect para abrir la conexión y si hay algún error mostrará la alerta
 conexion.connect(error => {
   if (error)
     console.log('Problemas de conexion con mysql');
@@ -30,7 +30,7 @@ servidor.listen(8888);
 
 
 function encaminar (pedido,respuesta,camino) {
-  
+  //capturamos la ruta indicada en el hipervínculo
   switch (camino) {
     case 'public/creartabla': {
       crear(respuesta);
@@ -74,10 +74,15 @@ function encaminar (pedido,respuesta,camino) {
 
 
 function crear(respuesta) {
+  //En la función crear llamamos a la función query del objeto conexion que creamos previamente
+  //le pasamos el comando SQL 'drop table if exists articulos' para que si ya existía la tabla proceda a borrarla.
+
+
   conexion.query('drop table if exists articulos', (error,resultado) => {
     if (error)
       console.log(error);				
   });	
+  //le pasamos el comando SQL 'create table articulos' para que se cree la tabla
   conexion.query(`create table articulos (
                                            codigo int primary key auto_increment,
                                            descripcion varchar(50),
@@ -100,12 +105,15 @@ function creararticulo(pedido,respuesta) {
   pedido.on('data', datosparciales => {
     info += datosparciales;
   });
+  //rescatamos todos los datos del formulario , inicializamos todos los campos de la tabla menos el código por ser auto_increment.
+ 
   pedido.on('end', () => {
     const formulario = querystring.parse(info);
     const registro={
       descripcion:formulario['descripcion'],
       precio:formulario['precio']
     };
+    //llamamos la función query de la variable conexion pasando el string con el comando SQL. 
     conexion.query('insert into articulos set ?',registro, (error,resultado) => {
       if (error) {
         console.log(error);
@@ -119,7 +127,7 @@ function creararticulo(pedido,respuesta) {
   });  	
 }
 
-
+//procedemos a mostrar todos los datos de la tabla 'articulos'
 function listado(respuesta) {
   conexion.query('select * from articulos', (error,filas) => {
     if (error) {			
@@ -140,7 +148,9 @@ function listado(respuesta) {
   });
 }
 
-
+//capturamos el ibgreso del codigo de artículo y procedemos a enviarlo al servidor 
+//llamamos a la función consulta donde rescatamos los valores del formulario y procedemos a llamar 
+//al comando SQL select con la clausula where indicando el código que se cargó en el formulario
 function consulta(pedido,respuesta) {
   let info='';
   pedido.on('data', datosparciales => {
