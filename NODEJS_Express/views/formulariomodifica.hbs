@@ -1,0 +1,12 @@
+{{#each articulos}}
+  <form method="post" action="/articulos/confirmarmodifica">
+  Ingrese nueva descripcion del articulo:
+  <input type="descripcion" name="descripcion" size="50" value="{{descripcion}}">
+  <br>
+  Ingrese nuevo precio del articulo:
+  <input type="text" name="precio" size="10" value="{{precio}}">
+  <input type="hidden" name="codigo" size="10" value="{{codigo}}">  
+  <br>
+  <input type="submit" value="Modificar">
+  </form>
+{{/each}}  
