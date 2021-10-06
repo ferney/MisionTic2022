@@ -28,7 +28,7 @@ const servidor=http.createServer((pedido,respuesta) => {
 
 servidor.listen(8888);
 
-
+//aqui capturamos los diferentes eventos que realizamos mediante el index, los procesamos y llamamos la funcion que requerimos al momento
 function encaminar (pedido,respuesta,camino) {
   //capturamos la ruta indicada en el hipervínculo
   switch (camino) {
